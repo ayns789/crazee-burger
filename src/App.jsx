@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import LoginPage from '../src/pages/login';
+import LoginPage from './components/pages/LoginPage';
 
 function App() {
   return <LoginPage />;
