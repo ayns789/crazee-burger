@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-const LoginPage = () => {
+export default function LoginForm() {
+  // state
   const [inputValue, setInputValue] = useState('');
 
+  // comportements
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -14,12 +16,13 @@ const LoginPage = () => {
     setInputValue(e.target.value);
   };
 
+  // affichage
   return (
     <>
-      <h1>Bienvenue chez nous !</h1>
-      <br />
-      <h2>Connectez-vous</h2>
       <form action='submit' onSubmit={handleSubmit}>
+        <h1>Bienvenue chez nous !</h1>
+        <br />
+        <h2>Connectez-vous</h2>
         <input
           type='text'
           placeholder='Entrez votre prénom'
@@ -31,6 +34,4 @@ const LoginPage = () => {
       </form>
     </>
   );
-};
-
-export default LoginPage;
+}
