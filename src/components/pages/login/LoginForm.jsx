@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { styled } from 'styled-components';
+import { BsPersonCircle } from 'react-icons/bs';
+
+import { theme } from '../../../theme';
 
 export default function LoginForm() {
   // state
@@ -20,19 +24,103 @@ export default function LoginForm() {
   // affichage
   return (
     <>
-      <form action='submit' onSubmit={handleSubmit}>
-        <h1>Bienvenue chez nous ! </h1>
-        <br />
-        <h2>Connectez-vous</h2>
-        <input
-          type='text'
-          placeholder='Entrez votre prénom'
-          value={inputValue}
-          onChange={handleChange}
-          required
-        />
-        <button>Accédez à votre espace</button>
-      </form>
+      <LoginFormStyled action='submit' onSubmit={handleSubmit}>
+        <div className='bloc_text'>
+          <h2>Bienvenue chez nous ! </h2>
+          <hr />
+          <h3>Connectez-vous</h3>
+        </div>
+        <div className='input'>
+          <div className='input-with-icon'>
+            <BsPersonCircle className='icon' />
+            <input
+              type='text'
+              placeholder='Entrez votre prénom'
+              value={inputValue}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button>Accéder à mon espace {'>'}</button>
+        </div>
+      </LoginFormStyled>
     </>
   );
 }
+
+const LoginFormStyled = styled.form`
+  .bloc_text {
+    text-align: center;
+    font-family: Amatic SC;
+    font-weight: ${theme.weights.bold};
+    h2 {
+      font-size: ${theme.fonts.P5};
+      line-height: 61px;
+      letter-spacing: 0em;
+      color: ${theme.colors.white};
+    }
+    hr {
+      width: 400px;
+      border: 1px solid ${theme.colors.primary_line};
+    }
+    h3 {
+      font-size: ${theme.fonts.P4};
+      color: ${theme.colors.white};
+    }
+  }
+  .input {
+    display: flex;
+    flex-direction: column;
+    font-size: ${theme.fonts.P0};
+    font-family: Arial;
+    letter-spacing: 0em;
+
+    .input-with-icon {
+      background-color: #fff;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      margin: 18px 0px;
+
+      .icon {
+        font-size: 15px;
+        margin-right: 8px;
+        color: #93a2b1;
+      }
+
+      input {
+        width: 100%;
+        border: none;
+        font-size: 15px;
+        color: #17161a;
+      }
+
+      &::placeholder {
+        background: white;
+        color: lightgrey;
+      }
+    }
+
+    button {
+      width: 400px;
+      height: 53px;
+      /* top: 345.3125px;
+      left: 32px; */
+      padding: 18px 106.203125px 18px 106.203125px;
+      border-radius: 5px;
+      border: 1px;
+      background-color: ${theme.colors.primary_burger};
+      color: ${theme.colors.white};
+      font-weight: ${theme.weights.bold};
+      line-height: 15px;
+      text-align: center;
+    }
+    button:active,
+    button:focus,
+    button:visited {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary_burger};
+    }
+  }
+`;
