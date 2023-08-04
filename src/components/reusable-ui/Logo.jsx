@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-// import LogoImg from '../../assets/images/F03_logo-orange.png';
 import { theme } from '../../theme';
 
 export default function Logo() {
