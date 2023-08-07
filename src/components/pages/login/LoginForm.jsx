@@ -6,7 +6,7 @@ import { IoChevronForward } from 'react-icons/io5';
 import { BsPersonCircle } from 'react-icons/bs';
 
 import { theme } from '../../../theme';
-import Input from './Input';
+import TextInput from '../../reusable-ui/TextInput';
 
 export default function LoginForm() {
   // state
@@ -33,7 +33,15 @@ export default function LoginForm() {
           <hr />
           <h3>Connectez-vous</h3>
         </div>
-        <Input
+        <TextInput
+          value={inputValue}
+          type='text'
+          onChange={handleChange}
+          placeholder={'Entrez votre prénom'}
+          Icon={<BsPersonCircle className='icon' />}
+          required
+        />
+        <TextInput
           value={inputValue}
           type='text'
           onChange={handleChange}
