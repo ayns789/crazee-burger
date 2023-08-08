@@ -17,15 +17,15 @@ PrimaryButton.propTypes = {
 };
 
 const PrimaryButtonStyled = styled.button`
-  width: 400px;
-  height: 53px;
-  padding: 18px 106.203125px 18px 106.203125px;
-  border-radius: 5px;
+  width: 25rem;
+  height: 3.3125rem;
+  padding: 1.125rem 6.6375rem 1.125rem 6.6375rem;
+  border-radius: ${theme.borderRadius.round};
   border: 1px;
   background-color: ${theme.colors.primary_burger};
   color: ${theme.colors.white};
-  font-weight: ${theme.weights.bold};
-  line-height: 15px;
+  font-size: ${theme.fonts.size.P0};
+  font-weight: ${theme.fonts.weights.bold};
   text-align: center;
 
   &:active,
@@ -44,15 +44,15 @@ const PrimaryButtonStyled = styled.button`
   text-decoration: none;
   line-height: 1;
   &:hover:not(:disabled) {
-    background-color: white;
-    color: #ff9f1b;
-    border: 1px solid #ff9f1b;
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary_burger};
     transition: all 200ms ease-out;
   }
   &:active {
-    color: white;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary_burger};
   }
   &:disabled {
     opacity: 0.6;

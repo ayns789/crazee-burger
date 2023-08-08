@@ -55,27 +55,27 @@ export default function LoginForm() {
 const LoginFormStyled = styled.form`
   .bloc_text {
     text-align: center;
-    font-family: Amatic SC;
-    font-weight: ${theme.weights.bold};
+    font-family: 'Amatic SC', cursive;
+    font-weight: ${theme.fonts.weights.bold};
     h2 {
-      font-size: ${theme.fonts.P5};
-      line-height: 61px;
+      font-size: ${theme.fonts.size.P5};
       letter-spacing: 0em;
       color: ${theme.colors.white};
     }
     hr {
-      width: 400px;
-      border: 1px solid ${theme.colors.primary_line};
+      margin-bottom: ${(theme.gridUnit * 5) / 16}rem;
+      border: 0.0938rem solid ${theme.colors.login_line};
     }
     h3 {
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.size.P4};
       color: ${theme.colors.white};
+      margin-bottom: 0;
     }
   }
 
   display: flex;
   flex-direction: column;
-  font-size: ${theme.fonts.P0};
+  font-size: ${theme.fonts.size.P0};
   font-family: Arial;
   letter-spacing: 0em;
 
@@ -83,7 +83,7 @@ const LoginFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
-    margin-left: 10px;
+    font-size: ${theme.fonts.size.P0};
+    margin-left: ${(theme.gridUnit + 2) / 16}rem;
   }
 `;

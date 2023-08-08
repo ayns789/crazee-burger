@@ -15,15 +15,21 @@ export default function Logo() {
 
 const LogoStyled = styled.div`
   h1 {
+    display: inline;
     text-align: center;
-    font-family: Amatic SC;
-    font-weight: ${theme.weights.bold};
-    font-size: ${theme.fonts.P7};
+    font-family: 'Amatic SC', cursive;
+    font-weight: ${theme.fonts.weights.bold};
+    font-size: ${theme.fonts.size.P7};
     color: ${theme.colors.primary};
+    text-transform: uppercase;
+    letter-spacing: 0.0938rem;
+    line-height: 1em;
   }
   img {
-    width: 200px;
-    height: 150px;
-    margin-bottom: -30px;
+    object-fit: contain;
+    object-position: center;
+    width: 12.5rem;
+    height: 9.375rem;
+    margin: 0 0.3125rem -1.875rem 0;
   }
 `;
