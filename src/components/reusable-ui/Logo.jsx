@@ -1,9 +1,10 @@
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
+import PropTypes from 'prop-types';
 
-export default function Logo() {
+export default function Logo({ className }) {
   return (
-    <LogoStyled>
+    <LogoStyled className={className}>
       <h1>
         crazee{' '}
         {<img src={'/images/F03_logo-orange.png'} className='logo' alt='Logo-crazee-burger' />}{' '}
@@ -13,13 +14,18 @@ export default function Logo() {
   );
 }
 
+Logo.propTypes = {
+  className: PropTypes.string,
+};
+
 const LogoStyled = styled.div`
+  display: flex;
   h1 {
     display: inline;
     text-align: center;
     font-family: 'Amatic SC', cursive;
     font-weight: ${theme.fonts.weights.bold};
-    font-size: ${theme.fonts.size.P7};
+    font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.primary};
     text-transform: uppercase;
     letter-spacing: 0.0938rem;
@@ -28,8 +34,9 @@ const LogoStyled = styled.div`
   img {
     object-fit: contain;
     object-position: center;
-    width: 12.5rem;
-    height: 9.375rem;
-    margin: 0 0.3125rem -1.875rem 0;
+    width: 80px;
+    height: 60px;
+    margin-bottom: -18px;
   }
+  background-size: cover;
 `;
