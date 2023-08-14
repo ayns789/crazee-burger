@@ -22,7 +22,7 @@ const PrimaryButtonStyled = styled.button`
   padding: 1.125rem 6.6375rem 1.125rem 6.6375rem;
   border-radius: ${theme.borderRadius.round};
   border: 1px;
-  background-color: ${theme.colors.primary_burger};
+  background: ${theme.colors.primary_burger};
   color: ${theme.colors.white};
   font-size: ${theme.fonts.size.P0};
   font-weight: ${theme.fonts.weights.bold};
@@ -31,7 +31,7 @@ const PrimaryButtonStyled = styled.button`
   &:active,
   &:focus,
   &:visited {
-    background-color: ${theme.colors.white};
+    background: ${theme.colors.white};
     color: ${theme.colors.primary_burger};
   }
 
@@ -44,7 +44,7 @@ const PrimaryButtonStyled = styled.button`
   text-decoration: none;
   line-height: 1;
   &:hover:not(:disabled) {
-    background-color: ${theme.colors.white};
+    background: ${theme.colors.white};
     color: ${theme.colors.primary_burger};
     border: 1px solid ${theme.colors.primary_burger};
     transition: all 200ms ease-out;
