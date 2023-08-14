@@ -13,5 +13,6 @@ body {
   display: flex;
   min-width: 20rem;
   min-height: 100vh;
+  font-family: "Open-sans", sans-serif;
 }
 
