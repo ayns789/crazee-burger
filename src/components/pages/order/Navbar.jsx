@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import NavbarRightSide from './NavbarRightSide';
 import { useParams } from 'react-router-dom';
 import Logo from '../../reusable-ui/Logo';
+import { theme } from '../../../theme';
 
 export default function Navbar() {
   const { username } = useParams();
@@ -16,7 +17,9 @@ export default function Navbar() {
 }
 
 const NavbarStyled = styled.div`
-  background: blue;
+  background: ${theme.colors.white};
+  border-top-left-radius: ${theme.borderRadius.extraRound};
+  border-top-right-radius: ${theme.borderRadius.extraRound};
   display: flex;
   align-items: center;
   justify-content: space-between;
