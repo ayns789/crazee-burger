@@ -40,7 +40,7 @@ const ProfileStyled = styled.div`
       margin: 0;
       color: ${theme.colors.greyBlue};
       b {
-        color: ${theme.colors.primary};
+        color: ${theme.colors.primary_pizza};
       }
     }
     a {

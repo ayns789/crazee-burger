@@ -6,9 +6,9 @@ export default function Logo({ className, onClick }) {
   return (
     <LogoStyled className={className} onClick={onClick}>
       <h1>
-        crazee{' '}
-        {<img src={'/images/F03_logo-orange.png'} className='logo' alt='Logo-crazee-burger' />}{' '}
-        burger
+        pasta{' '}
+        {<img src={'/images/logo_resto_italien.png'} className='logo' alt='Logo-pasta-piazza' />}{' '}
+        piazza
       </h1>
     </LogoStyled>
   );
@@ -31,6 +31,7 @@ const LogoStyled = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.0938rem;
     line-height: 1em;
+    text-shadow: 1px 1px 2px red, 0 0 1em orange, 0 0 0.2em orange;
   }
   img {
     object-fit: contain;
@@ -38,6 +39,7 @@ const LogoStyled = styled.div`
     width: 80px;
     height: 60px;
     margin-bottom: -18px;
+    transform: scale(1.5);
   }
   background-size: cover;
 `;
