@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 import Logo from '../../reusable-ui/Logo';
 import LoginForm from './LoginForm';
-import backgroundImg from '/images/F03_burger-background.jpg';
+import backgroundImg from '/images/background_resto_italien.png';
+import { theme } from '../../../theme';
 
 export default function LoginPage() {
   return (
@@ -21,7 +22,7 @@ const LoginPageStyled = styled.div`
   align-items: center;
   &::before {
     content: '';
-    background: url(${backgroundImg}) rgba(0, 0, 0, 0.7);
+    background: url(${backgroundImg}) rgba(0, 0, 0, 0.8);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,5 +37,10 @@ const LoginPageStyled = styled.div`
   .logo-login-page {
     transform: scale(2.5);
     margin-bottom: 80px;
+    /* filter: drop-shadow(0 0 0.75rem crimson); */
+    img {
+      transform: scale(2);
+      filter: drop-shadow(0 0 0.75rem ${theme.colors.primary});
+    }
   }
 `;
