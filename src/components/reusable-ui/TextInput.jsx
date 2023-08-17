@@ -26,7 +26,6 @@ const TextInputStyled = styled.div`
   align-items: center;
   padding: 1.125rem 1.5rem;
   margin: 1.125rem 0rem;
-
   .icon {
     font-size: ${theme.fonts.size.P0};
     margin-right: ${theme.gridUnit / 16}rem;
