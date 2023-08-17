@@ -37,6 +37,9 @@ const LoginPageStyled = styled.div`
   .logo-login-page {
     transform: scale(2.5);
     margin-bottom: 80px;
+    h1 {
+      text-shadow: 1px 1px 2px red, 0 0 1em orange, 0 0 0.2em orange;
+    }
     /* filter: drop-shadow(0 0 0.75rem crimson); */
     img {
       transform: scale(2);
