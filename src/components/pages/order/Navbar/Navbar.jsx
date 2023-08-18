@@ -21,6 +21,7 @@ const NavbarStyled = styled.div`
   background: ${theme.colors.white};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
+  border: 1px solid ${theme.colors.greyLight};
   display: flex;
   align-items: center;
   justify-content: space-between;
