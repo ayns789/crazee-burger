@@ -19,7 +19,7 @@ PrimaryButton.propTypes = {
 const PrimaryButtonStyled = styled.button`
   width: 25rem;
   height: 3.3125rem;
-  padding: 1.125rem 6.6375rem 1.125rem 6.6375rem;
+  /* padding: 1.125rem 6.6375rem 1.125rem 6.6375rem; */
   border-radius: ${theme.borderRadius.round};
   border: 1px;
   background: ${theme.colors.secondary};
