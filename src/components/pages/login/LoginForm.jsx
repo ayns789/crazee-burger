@@ -56,6 +56,7 @@ const LoginFormStyled = styled.form`
   .bloc_text {
     text-align: center;
     font-family: 'Amatic SC', cursive;
+    /* font-family: 'Josefin Sans', cursive; */
     font-weight: ${theme.fonts.weights.bold};
     h2 {
       font-size: ${theme.fonts.size.P5};

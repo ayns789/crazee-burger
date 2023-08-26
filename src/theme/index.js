@@ -4,45 +4,44 @@ const colors = {
   white: '#fff',
   background_white: '#f5f5f7',
   background_dark: '#292729',
-  primary: '#FFD700',
-  primary_pizza: '#ff4500',
-  login_line: '#F56A2C',
+  primary_logo: '#FFD700',
+  primary: '#ffa01b',
+  secondary: '#ff4500',
   green: 'green',
   success: '#60bd4f',
   red: '#e25549',
   redSecondary: '#c4151c',
   blue: '#51a7e1',
-  greyExtraLight: '#F4F4F4',
   greyLight: '#e4e5e9',
   greyMedium: '#a7a8ad',
   greySemiDark: '#93a2b1',
   greyDark: '#6f737e',
   greyBlue: '#747b91',
+  loginLine: '#f56a2c',
 };
 
 const spacing = {
-  xxs: '0.25em',
-  xs: '0.5em',
-  sm: '0.75em',
-  md: '1.25em',
-  lg: '2em',
-  xl: '3.25em',
-  xxl: '5.25em',
+  xxs: '4px',
+  xs: '8px',
+  sm: '12px',
+  md: '20px',
+  lg: '32px',
+  xl: '52px',
+  xxl: '84px',
 };
 
 const fonts = {
   size: {
-    XXXS: '0.5em',
-    XXS: '0.625em',
-    XS: '0.75em',
-    P0: '0.9375em',
-    P1: '1.125em',
-    P2: '1.25em',
-    P3: '1.5em',
-    P4: '2.25em',
-    P5: '3em',
-    P6: '3.75em',
-    P7: '6.875em',
+    XXXS: '8px',
+    XXS: '10px',
+    XS: '12px',
+    P0: '15px',
+    P1: '18px',
+    P2: '20px',
+    P3: '24px',
+    P4: '36px',
+    P5: '48px',
+    P6: '60px',
   },
   weights: {
     light: 300,
@@ -53,19 +52,15 @@ const fonts = {
     heavy: 800,
   },
 };
-
 const gridUnit = 8;
-
 const borderRadius = {
   subtle: 1,
-  round: '0.3125rem',
-  extraRound: '0.9375rem',
+  round: '5px',
+  extraRound: '15px',
   circle: '50%',
 };
 
-const shadows = {
-  bg_dark_home: '#000000 25%',
-};
+const shadows = {};
 
 export const theme = {
   colors,

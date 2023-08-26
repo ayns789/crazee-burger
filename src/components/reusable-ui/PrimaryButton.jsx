@@ -19,10 +19,10 @@ PrimaryButton.propTypes = {
 const PrimaryButtonStyled = styled.button`
   width: 25rem;
   height: 3.3125rem;
-  padding: 1.125rem 6.6375rem 1.125rem 6.6375rem;
+  /* padding: 1.125rem 6.6375rem 1.125rem 6.6375rem; */
   border-radius: ${theme.borderRadius.round};
   border: 1px;
-  background: ${theme.colors.primary_pizza};
+  background: ${theme.colors.secondary};
   color: ${theme.colors.white};
   font-size: ${theme.fonts.size.P0};
   font-weight: ${theme.fonts.weights.bold};
@@ -32,7 +32,7 @@ const PrimaryButtonStyled = styled.button`
   &:focus,
   &:visited {
     background: ${theme.colors.white};
-    color: ${theme.colors.primary_pizza};
+    color: ${theme.colors.secondary};
   }
 
   width: 100%;
@@ -45,14 +45,14 @@ const PrimaryButtonStyled = styled.button`
   line-height: 1;
   &:hover:not(:disabled) {
     background: ${theme.colors.white};
-    color: ${theme.colors.primary_pizza};
-    border: 1px solid ${theme.colors.primary_pizza};
+    color: ${theme.colors.secondary};
+    border: 1px solid ${theme.colors.secondary};
     transition: all 200ms ease-out;
   }
   &:active {
     color: ${theme.colors.white};
-    background-color: ${theme.colors.primary_pizza};
-    border: 1px solid ${theme.colors.primary_pizza};
+    background-color: ${theme.colors.secondary};
+    border: 1px solid ${theme.colors.secondary};
   }
   &:disabled {
     opacity: 0.6;
