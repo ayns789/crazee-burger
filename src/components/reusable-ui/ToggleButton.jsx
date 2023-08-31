@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { theme } from '../../theme';
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ export default function ToggleButton({
 
 ToggleButton.propTypes = {
   isChecked: PropTypes.bool,
-  onToggle: PropTypes.bool,
+  onToggle: PropTypes.string,
   labelIfChecked: PropTypes.string,
   labelIfUnchecked: PropTypes.string,
 };
