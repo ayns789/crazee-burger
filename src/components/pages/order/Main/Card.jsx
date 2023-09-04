@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { theme } from '../../../../theme';
 import PrimaryButton from './PrimaryButton';
-import { theme } from '../../theme';
 
 export default function Card({ title, imageSource, leftDescription }) {
   return (
-    <CardStyled>
+    <CardStyled className='produit'>
       <div className='image'>
         <img src={imageSource} alt={title} />
       </div>
@@ -24,12 +24,13 @@ export default function Card({ title, imageSource, leftDescription }) {
 
 Card.propTypes = {
   title: PropTypes.string,
-  imageSource: PropTypes.string,
-  leftDescription: PropTypes.number,
+  imageSource: PropTypes.object,
+  leftDescription: PropTypes.string,
 };
 
 const CardStyled = styled.div`
   box-sizing: border-box;
+  /* background: red; */
   width: 240px;
   height: 330px;
   border-radius: 15px;
@@ -95,7 +96,6 @@ const CardStyled = styled.div`
         font-size: ${theme.fonts.size.P1};
 
         .primary-button {
-          padding: 0;
           font-size: ${theme.fonts.size.XS};
           cursor: pointer;
           padding: 12px;
