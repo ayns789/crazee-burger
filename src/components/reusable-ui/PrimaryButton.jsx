@@ -22,7 +22,7 @@ const PrimaryButtonStyled = styled.button`
   /* padding: 1.125rem 6.6375rem 1.125rem 6.6375rem; */
   border-radius: ${theme.borderRadius.round};
   border: 1px;
-  background: ${theme.colors.redSecondary};
+  background: ${theme.colors.primary};
   color: ${theme.colors.white};
   font-size: ${theme.fonts.size.SM};
   font-weight: ${theme.fonts.weights.bold};
@@ -32,7 +32,7 @@ const PrimaryButtonStyled = styled.button`
   &:focus,
   &:visited {
     background: ${theme.colors.white};
-    color: ${theme.colors.redSecondary};
+    color: ${theme.colors.primary};
   }
 
   width: 100%;
@@ -45,14 +45,14 @@ const PrimaryButtonStyled = styled.button`
   line-height: 1;
   &:hover:not(:disabled) {
     background: ${theme.colors.white};
-    color: ${theme.colors.redSecondary};
-    border: 1px solid ${theme.colors.redSecondary};
+    color: ${theme.colors.primary};
+    border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
   &:active {
     color: ${theme.colors.white};
-    background-color: ${theme.colors.redSecondary};
-    border: 1px solid ${theme.colors.redSecondary};
+    background-color: ${theme.colors.primary};
+    border: 1px solid ${theme.colors.primary};
   }
   &:disabled {
     opacity: 0.6;
