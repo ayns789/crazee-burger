@@ -27,7 +27,7 @@ const TextInputStyled = styled.div`
   padding: 1.125rem 1.5rem;
   margin: 1.125rem 0rem;
   .icon {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: ${theme.gridUnit / 16}rem;
     color: ${theme.colors.greySemiDark};
   }
@@ -35,7 +35,7 @@ const TextInputStyled = styled.div`
   input {
     width: 100%;
     border: none;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.dark};
     &::placeholder {
       background: ${theme.colors.white};

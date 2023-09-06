@@ -85,7 +85,7 @@ const CardStyled = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         font-weight: ${theme.fonts.weights.medium};
-        color: ${theme.colors.primary};
+        color: ${theme.colors.redSecondary};
       }
 
       .right-description {

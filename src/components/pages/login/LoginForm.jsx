@@ -76,7 +76,7 @@ const LoginFormStyled = styled.form`
 
   display: flex;
   flex-direction: column;
-  font-size: ${theme.fonts.size.P0};
+  font-size: ${theme.fonts.size.SM};
   font-family: Arial;
   letter-spacing: 0em;
 
@@ -84,7 +84,7 @@ const LoginFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-left: ${(theme.gridUnit + 2) / 16}rem;
   }
 `;
