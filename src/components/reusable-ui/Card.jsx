@@ -25,7 +25,7 @@ export default function Card({ title, imageSource, leftDescription }) {
 Card.propTypes = {
   title: PropTypes.string,
   imageSource: PropTypes.string,
-  leftDescription: PropTypes.number,
+  leftDescription: PropTypes.string,
 };
 
 const CardStyled = styled.div`
