@@ -6,7 +6,7 @@ import OrderContext from '../../../context/OrderContext';
 import { useState } from 'react';
 
 export default function OrderPage() {
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
 
   const orderContextValue = {
     isModeAdmin,
