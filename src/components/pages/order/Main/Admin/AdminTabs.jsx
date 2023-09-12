@@ -1,58 +1,22 @@
 import styled from 'styled-components';
 import Tab from '../../../../reusable-ui/Tab';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { MdModeEditOutline } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { theme } from '../../../../../theme';
 import { useContext } from 'react';
 import OrderContext from '../../../../../context/OrderContext';
+import { getTabsConfig } from './getTabsConfig';
 
 export default function AdminTabs() {
-  const {
-    isCollapsed,
-    setIsCollapsed,
-    isAddSelected,
-    setIsAddTabSelected,
-    isEditSelected,
-    setIsEditTabSelected,
-  } = useContext(OrderContext);
+  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
+    useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
     setIsCollapsed(false);
-
-    if (tabSelected === 'add') {
-      setIsAddTabSelected(true);
-      setIsEditTabSelected(false);
-    }
-    if (tabSelected === 'edit') {
-      setIsEditTabSelected(true);
-      setIsAddTabSelected(false);
-    }
+    setCurrentTabSelected(tabSelected);
   };
 
-  const tabsConfig = [
-    {
-      label: '',
-      Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
-      onClick: () => {
-        setIsCollapsed(!isCollapsed);
-      },
-      className: isCollapsed ? 'is-active' : '',
-    },
-    {
-      label: 'Ajouter un produit',
-      Icon: <AiOutlinePlus />,
-      onClick: () => selectTab('add'),
-      className: isAddSelected ? 'is-active' : '',
-    },
-    {
-      label: 'Modifier un produit',
-      Icon: <MdModeEditOutline />,
-      onClick: () => selectTab('edit'),
-      className: isEditSelected ? 'is-active' : '',
-    },
-  ];
+  const tabs = getTabsConfig(currentTabSelected);
 
   return (
     <AdminTabsStyled>
@@ -76,11 +40,23 @@ export default function AdminTabs() {
         onClick={() => selectTab('edit')}
         className={isEditSelected ? 'is-active' : ''}
       /> */}
-      {tabsConfig.map((tab) => {
-        return (
-          <Tab label={tab.label} Icon={tab.Icon} onClick={tab.onClick} className={tab.className} />
-        );
-      })}
+      <Tab
+        label=''
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={() => {
+          setIsCollapsed(!isCollapsed);
+        }}
+        className={isCollapsed ? 'is-active' : ''}
+      />
+      {tabs.map((tab) => (
+        <Tab
+          key={tab.label}
+          label={tab.label}
+          Icon={tab.Icon}
+          onClick={() => selectTab(tab.index)}
+          className={tab.className}
+        />
+      ))}
     </AdminTabsStyled>
   );
 }
@@ -88,10 +64,8 @@ export default function AdminTabs() {
 AdminTabs.propTypes = {
   isCollapsed: PropTypes.bool,
   setIsCollapsed: PropTypes.func,
-  isEditSelected: PropTypes.bool,
-  setIsEditTabSelected: PropTypes.func,
-  isAddSelected: PropTypes.bool,
-  setIsAddTabSelected: PropTypes.func,
+  currentTabSelected: PropTypes.bool,
+  setCurrentTabSelecte: PropTypes.func,
 };
 
 const AdminTabsStyled = styled.div`

@@ -4,7 +4,7 @@ export default createContext({
   isModeAdmin: false,
   setIsModeAdmin: () => {},
 
-  isCollapsed: false,
+  isCollapsed: true,
   setIsCollapsed: () => {},
 
   isAddSelected: false,
@@ -12,4 +12,7 @@ export default createContext({
 
   isEditSelected: false,
   setIsEditTabSelected: () => {},
+
+  currentTabSelected: '',
+  setCurrentTabSelected: () => {},
 });

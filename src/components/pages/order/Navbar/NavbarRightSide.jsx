@@ -41,10 +41,6 @@ export default function NavbarRightSide() {
   );
 }
 
-NavbarRightSide.propTypes = {
-  username: PropTypes.string.isRequired,
-};
-
 const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;

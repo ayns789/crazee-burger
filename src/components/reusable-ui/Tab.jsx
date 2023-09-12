@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../theme';
 import PropTypes from 'prop-types';
 
-export default function Tab({ Icon, onClick, className, label }) {
+export default function Tab({ label, Icon, onClick, className }) {
   return (
     <TabStyled onClick={onClick} className={className}>
       <div className='icon'>{Icon}</div>
@@ -12,10 +12,10 @@ export default function Tab({ Icon, onClick, className, label }) {
 }
 
 Tab.propTypes = {
-  Icon: PropTypes.object,
+  label: PropTypes.string,
+  Icon: PropTypes.element,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  label: PropTypes.string,
 };
 
 const TabStyled = styled.button`
