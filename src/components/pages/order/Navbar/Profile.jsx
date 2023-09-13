@@ -1,10 +1,11 @@
 import { BsPersonCircle } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from '../../../../theme';
 import PropTypes from 'prop-types';
 
-export default function Profile({ username }) {
+export default function Profile() {
+  const { username } = useParams();
   return (
     <ProfileStyled>
       <div className='info'>
@@ -41,7 +42,7 @@ const ProfileStyled = styled.div`
       margin: 0;
       color: ${theme.colors.greyBlue};
       b {
-        color: ${theme.colors.secondary};
+        color: ${theme.colors.primary};
       }
     }
     a {

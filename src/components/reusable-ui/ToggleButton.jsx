@@ -29,7 +29,7 @@ export default function ToggleButton({
 
 ToggleButton.propTypes = {
   isChecked: PropTypes.bool,
-  onToggle: PropTypes.string,
+  onToggle: PropTypes.func,
   labelIfChecked: PropTypes.string,
   labelIfUnchecked: PropTypes.string,
 };
