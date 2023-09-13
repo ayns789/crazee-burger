@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../../../../theme';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import OrderContext from '../../../../../context/OrderContext';
 // import { getTabsConfig } from './getTabsConfig';
@@ -17,13 +17,6 @@ export default function AdminPanel() {
     </AdminPanelStyled>
   );
 }
-
-AdminPanel.propTypes = {
-  isEditSelected: PropTypes.bool,
-  setIsEditTabSelected: PropTypes.func,
-  isAddSelected: PropTypes.bool,
-  setIsAddTabSelected: PropTypes.func,
-};
 
 const AdminPanelStyled = styled.div`
   height: 251px;

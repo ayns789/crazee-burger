@@ -16,7 +16,7 @@ export default function AdminTabs() {
     setCurrentTabSelected(tabSelected);
   };
 
-  const tabs = getTabsConfig();
+  const tabs = getTabsConfig;
 
   return (
     <AdminTabsStyled>
@@ -50,7 +50,7 @@ export default function AdminTabs() {
       />
       {tabs.map((tab) => (
         <Tab
-          key={tab.label}
+          key={tab.index}
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}

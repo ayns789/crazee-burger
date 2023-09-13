@@ -1,7 +1,8 @@
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdModeEditOutline } from 'react-icons/md';
 
-export const getTabsConfig = () => [
+// export const getTabsConfig = (isCollapsed, setIsCollapsed) => [
+export const getTabsConfig = [
   // {
   //   index: 'chevronUpDown',
   //   label: '',
