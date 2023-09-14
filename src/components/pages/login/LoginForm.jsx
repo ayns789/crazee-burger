@@ -65,7 +65,7 @@ const LoginFormStyled = styled.form`
     }
     hr {
       margin-bottom: ${(theme.gridUnit * 5) / 16}rem;
-      border: 0.0938rem solid ${theme.colors.login_line};
+      border: 0.0938rem solid ${theme.colors.primary};
     }
     h3 {
       font-size: ${theme.fonts.size.P4};
