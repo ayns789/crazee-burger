@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { fakeMenu2 } from '../../../../fakeData/fakeProducts';
+import { fakeMenu } from '../../../../fakeData/fakeProducts';
 import { theme } from '../../../../theme';
 import Card from '../../../reusable-ui/Card';
 import { formatPrice } from '../../../../utils/maths';
 
 export default function Menu() {
-  const [products, setProducts] = useState(fakeMenu2);
+  const [products, setProducts] = useState(fakeMenu.MEDIUM);
   return (
     <MenuStyled>
       {products.map(({ title, imageSource, price }) => {
