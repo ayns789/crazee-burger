@@ -1,8 +1,25 @@
 import styled from 'styled-components';
+import OrderContext from '../../../../../../context/OrderContext';
+import { useContext } from 'react';
 
 export default function AddForm() {
+  const { handleAdd } = useContext(OrderContext);
+
+  const newProduct = {
+    id: new Date().getTime(),
+    title: 'Nouveau produit',
+    imageSource:
+      'https://img2.freepng.fr/20190625/skz/kisspng-cheeseburger-hamburger-patty-food-stock-photograph-5d12d8eec90486.6268925215615162708234.jpg',
+    price: 2.5,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdd(newProduct);
+  };
+
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className='image-preview'>Image Preview</div>
       <div className='input-fields'>
         <input type='text' placeholder='Nom du produit' />
