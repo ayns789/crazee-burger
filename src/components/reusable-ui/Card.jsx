@@ -4,11 +4,11 @@ import PrimaryButton from './PrimaryButton';
 import { theme } from '../../theme';
 import { TiDelete } from 'react-icons/ti';
 
-export default function Card({ title, imageSource, leftDescription, hasDeleteButton }) {
+export default function Card({ title, imageSource, leftDescription, hasDeleteButton, onDelete }) {
   return (
     <CardStyled>
       {hasDeleteButton && (
-        <button className='delete-button' aria-label='delete-button'>
+        <button className='delete-button' aria-label='delete-button' onClick={onDelete}>
           <TiDelete className='icon' />
         </button>
       )}
@@ -33,6 +33,7 @@ Card.propTypes = {
   imageSource: PropTypes.string,
   leftDescription: PropTypes.string,
   hasDeleteButton: PropTypes.bool,
+  onDelete: PropTypes.func,
 };
 
 const CardStyled = styled.div`

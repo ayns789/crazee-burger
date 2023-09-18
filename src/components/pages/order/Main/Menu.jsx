@@ -9,17 +9,19 @@ import { useContext } from 'react';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin } = useContext(OrderContext);
+  const { products, isModeAdmin, handleDelete } = useContext(OrderContext);
+
   return (
     <MenuStyled>
-      {products.map(({ title, imageSource, price }) => {
+      {products.map(({ id, title, imageSource, price }) => {
         return (
           <Card
-            key={title}
+            key={id}
             title={title}
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}

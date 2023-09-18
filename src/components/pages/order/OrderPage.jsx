@@ -23,6 +23,13 @@ export default function OrderPage() {
     setProducts(menuUpdated);
   };
 
+  const handleDelete = (idProduct) => {
+    // alert('button clicked');
+    const productsCopy = [...products];
+    const productsUpdated = productsCopy.filter((product) => product.id !== idProduct);
+    setProducts(productsUpdated);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -32,6 +39,7 @@ export default function OrderPage() {
     setCurrentTabSelected,
     products,
     handleAdd,
+    handleDelete,
   };
 
   return (
