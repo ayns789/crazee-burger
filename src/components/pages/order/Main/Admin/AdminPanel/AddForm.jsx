@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import OrderContext from '../../../../../../context/OrderContext';
 import { useContext } from 'react';
 import { useState } from 'react';
+import { FiCheck } from 'react-icons/fi';
 
 const EMPTY_PRODUCT = {
   id: '',
@@ -14,6 +15,7 @@ export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
 
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +28,14 @@ export default function AddForm() {
     console.log('newProduct is : ', newProductToAdd);
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
+    displaySuccessMsg();
+  };
+
+  const displaySuccessMsg = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -81,8 +91,14 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <div className='submit-button'>
-        <button>Submit button</button>
+      <div className='submit'>
+        <button className='submit-button'>Submit button</button>
+        {isSubmitted && (
+          <div className='submit-message'>
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        )}
       </div>
     </AddFormStyled>
   );
@@ -117,11 +133,23 @@ const AddFormStyled = styled.form`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
-  .submit-button {
+  .submit {
     background: lightgreen;
-    grid-area: 4/ 2 / 5 / 3;
-
-    display: grid;
-    width: 40%;
+    grid-area: 4/2 / 5/3;
+    display: flex;
+    align-items: center;
+    height: 2.5em;
+    .submit-button {
+      width: 50%;
+      height: 100%;
+    }
+    .submit-message {
+      font-size: small;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
   }
 `;
