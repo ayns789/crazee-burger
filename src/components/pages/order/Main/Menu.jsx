@@ -9,8 +9,7 @@ import { useContext } from 'react';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products } = useContext(OrderContext);
-
+  const { products, isModeAdmin } = useContext(OrderContext);
   return (
     <MenuStyled>
       {products.map(({ title, imageSource, price }) => {
@@ -20,6 +19,7 @@ export default function Menu() {
             title={title}
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
           />
         );
       })}
