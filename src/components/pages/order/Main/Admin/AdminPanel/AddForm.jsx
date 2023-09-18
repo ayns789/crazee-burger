@@ -10,8 +10,6 @@ const EMPTY_PRODUCT = {
   price: '',
 };
 
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs0QTOAdZu3bcdNH0QqW8U2NpKmgkgqcY7-wRo3H4OKvki1XhcpFUDHoAHr-zgEr16zlE&usqp=CAU
-
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
 
@@ -27,6 +25,7 @@ export default function AddForm() {
     };
     console.log('newProduct is : ', newProductToAdd);
     handleAdd(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
@@ -48,13 +47,20 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className='image-preview'>Image Preview</div>
+      <div className='image-preview'>
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <span>Aucune image</span>
+        )}
+      </div>
+
       <div className='input-fields'>
         <input
           key='title'
           name='title'
           type='text'
-          placeholder='Nom du produit'
+          placeholder='Nom du produit (ex: Super Burger)'
           value={newProduct.title}
           onChange={handleChange}
         />
@@ -62,7 +68,7 @@ export default function AddForm() {
           key='imageSource'
           name='imageSource'
           type='text'
-          placeholder='image url'
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           value={newProduct.imageSource}
           onChange={handleChange}
         />
@@ -95,6 +101,13 @@ const AddFormStyled = styled.form`
     // surface, on commence toujours par ligne, puis colonne:
     // début ligne 1 / colonne 1, fin ligne 4 / colonne 2
     grid-area: 1 / 1 / 4 / 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: center;
+    }
   }
   .input-fields {
     background: lightblue;
