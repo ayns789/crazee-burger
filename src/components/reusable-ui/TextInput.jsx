@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 import { theme } from '../../theme';
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({ value, onChange, Icon, className, ...extraProps }) {
   console.log('restProps : ', extraProps);
 
   return (
-    <TextInputStyled>
-      {Icon && Icon}
+    <TextInputStyled className={className}>
+      <div className='icon'>{Icon && Icon}</div>
       <input value={value} onChange={onChange} {...extraProps} />
     </TextInputStyled>
   );
@@ -25,10 +25,13 @@ const TextInputStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 1.125rem 1.5rem;
-  margin: 1.125rem 0rem;
+
   .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${theme.fonts.size.SM};
-    margin-right: ${theme.gridUnit / 16}rem;
+    margin: 0 8px 0 10px;
     color: ${theme.colors.greySemiDark};
   }
 
