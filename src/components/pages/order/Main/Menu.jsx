@@ -9,7 +9,16 @@ import { useContext } from 'react';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin, handleDelete } = useContext(OrderContext);
+  const { products, isModeAdmin, handleDelete, resetProduct } = useContext(OrderContext);
+
+  if (products.length === 0) {
+    return (
+      <div>
+        <span>Pas de produits</span>
+        <button onClick={resetProduct}>Générer de nouveaux produits</button>
+      </div>
+    );
+  }
 
   return (
     <MenuStyled>
