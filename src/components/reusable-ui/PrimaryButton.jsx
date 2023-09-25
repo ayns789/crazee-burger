@@ -6,7 +6,7 @@ export default function PrimaryButton({ label, Icon }) {
   return (
     <PrimaryButtonStyled>
       <span>{label}</span>
-      {Icon && Icon}
+      {Icon && <div className='icon'>{Icon}</div>}
     </PrimaryButtonStyled>
   );
 }
@@ -57,5 +57,12 @@ const PrimaryButtonStyled = styled.button`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${theme.fonts.size.SM};
+    margin-left: ${(theme.gridUnit + 2) / 16}rem;
   }
 `;

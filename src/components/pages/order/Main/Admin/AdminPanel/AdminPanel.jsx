@@ -1,21 +1,18 @@
 import styled from 'styled-components';
-import { theme } from '../../../../../theme';
+import { theme } from '../../../../../../theme';
 // import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import OrderContext from '../../../../../context/OrderContext';
-// import { getTabsConfig } from './getTabsConfig';
+import OrderContext from '../../../../../../context/OrderContext';
+import { getTabsConfig } from '../getTabsConfig';
+import { getTabSelected } from '../getTabsConfig';
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
 
-  // const tabs = getTabsConfig(currentTabSelected);
+  const tabs = getTabsConfig;
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return (
-    <AdminPanelStyled>
-      {currentTabSelected === 'add' && 'Ajouter un produit'}
-      {currentTabSelected === 'edit' && 'Modifier un produit'}
-    </AdminPanelStyled>
-  );
+  return <AdminPanelStyled>{tabSelected && tabSelected.Content}</AdminPanelStyled>;
 }
 
 const AdminPanelStyled = styled.div`
@@ -23,6 +20,7 @@ const AdminPanelStyled = styled.div`
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
-  border-top: 1px solid ${theme.colors.greyLight};
+  border: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+  padding: 30px 5%;
 `;
