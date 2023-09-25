@@ -4,6 +4,10 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { FiCheck } from 'react-icons/fi';
 import { theme } from '../../../../../../theme';
+import TextInput from '../../../../../reusable-ui/TextInput';
+import { FaHamburger } from 'react-icons/fa';
+import { BsFillCameraFill } from 'react-icons/bs';
+import { MdOutlineEuro } from 'react-icons/md';
 
 const EMPTY_PRODUCT = {
   id: '',
@@ -67,29 +71,32 @@ export default function AddForm() {
       </div>
 
       <div className='input-fields'>
-        <input
+        <TextInput
           key='title'
           name='title'
           type='text'
           placeholder='Nom du produit (ex: Super Burger)'
           value={newProduct.title}
           onChange={handleChange}
+          Icon={<FaHamburger />}
         />
-        <input
+        <TextInput
           key='imageSource'
           name='imageSource'
           type='text'
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           value={newProduct.imageSource}
           onChange={handleChange}
+          Icon={<BsFillCameraFill />}
         />
-        <input
+        <TextInput
           key='price'
           name='price'
           type='text'
           placeholder='prix'
           value={newProduct.price}
           onChange={handleChange}
+          Icon={<MdOutlineEuro />}
         />
       </div>
       <div className='submit'>

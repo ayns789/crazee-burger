@@ -17,6 +17,7 @@ TextInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   Icon: PropTypes.object.isRequired,
+  className: PropTypes.string,
 };
 
 const TextInputStyled = styled.div`

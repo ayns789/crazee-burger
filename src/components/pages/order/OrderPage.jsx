@@ -10,7 +10,7 @@ export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState('add');
-  const [products, setProducts] = useState(fakeMenu.MEDIUM);
+  const [products, setProducts] = useState(fakeMenu.LARGE);
 
   const handleAdd = (newProduct) => {
     // 1. Copie du tableau
