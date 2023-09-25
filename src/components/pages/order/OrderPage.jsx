@@ -31,7 +31,7 @@ export default function OrderPage() {
   };
 
   const resetProduct = () => {
-    setProducts(fakeMenu.MEDIUM);
+    setProducts(fakeMenu.LARGE);
   };
 
   const orderContextValue = {
