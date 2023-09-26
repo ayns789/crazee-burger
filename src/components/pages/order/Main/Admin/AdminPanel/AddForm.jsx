@@ -79,6 +79,8 @@ export default function AddForm() {
           value={newProduct.title}
           onChange={handleChange}
           Icon={<FaHamburger />}
+          className='input-addForm'
+          version='minimalist'
         />
         <TextInput
           key='imageSource'
@@ -88,6 +90,8 @@ export default function AddForm() {
           value={newProduct.imageSource}
           onChange={handleChange}
           Icon={<BsFillCameraFill />}
+          className='input-addForm'
+          version='minimalist'
         />
         <TextInput
           key='price'
@@ -97,6 +101,8 @@ export default function AddForm() {
           value={newProduct.price}
           onChange={handleChange}
           Icon={<MdOutlineEuro />}
+          className='input-addForm'
+          version='minimalist'
         />
       </div>
       <div className='submit'>
@@ -148,12 +154,13 @@ const AddFormStyled = styled.form`
     }
   }
   .input-fields {
-    background: lightblue;
+    /* background: lightblue; */
     grid-area: 1 / 2 / 4 / 3;
 
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr; */
+    grid-row-gap: 8px;
   }
   .submit {
     background: lightgreen;
