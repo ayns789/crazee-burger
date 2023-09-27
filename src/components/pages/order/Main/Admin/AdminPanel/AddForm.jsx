@@ -8,6 +8,7 @@ import TextInput from '../../../../../reusable-ui/TextInput';
 import { FaHamburger } from 'react-icons/fa';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { MdOutlineEuro } from 'react-icons/md';
+import Button from '../../../../../reusable-ui/Button';
 
 const EMPTY_PRODUCT = {
   id: '',
@@ -106,7 +107,11 @@ export default function AddForm() {
         />
       </div>
       <div className='submit'>
-        <button className='submit-button'>Submit button</button>
+        <Button
+          className='submit-button'
+          label={'Ajouter un nouveau produit'}
+          version={'minimalist'}
+        />
         {isSubmitted && (
           <div className='submit-message'>
             <FiCheck />
@@ -119,7 +124,6 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  /* border: 2px solid black; */
   display: grid;
   grid-template-columns: 1fr 3fr;
   /* grid-template-rows: 1fr 1fr 1fr 1fr; */
@@ -154,16 +158,12 @@ const AddFormStyled = styled.form`
     }
   }
   .input-fields {
-    /* background: lightblue; */
     grid-area: 1 / 2 / 4 / 3;
 
     display: grid;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr; */
     grid-row-gap: 8px;
   }
   .submit {
-    background: lightgreen;
     grid-area: 4/2 / 5/3;
     display: flex;
     align-items: center;

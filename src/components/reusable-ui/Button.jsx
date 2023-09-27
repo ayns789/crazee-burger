@@ -1,22 +1,27 @@
 import PropTypes from 'prop-types';
 import { theme } from '../../theme';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-export default function PrimaryButton({ label, Icon }) {
+export default function Button({ label, Icon, version = 'normal' }) {
   return (
-    <PrimaryButtonStyled>
+    <ButtonStyled version={version}>
       <span>{label}</span>
       {Icon && <div className='icon'>{Icon}</div>}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-PrimaryButton.propTypes = {
+Button.propTypes = {
   label: PropTypes.string.isRequired,
   Icon: PropTypes.object,
+  version: PropTypes.string,
 };
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
+  ${(props) => extraStyle[props.version]}
+`;
+
+const extraStylePrimary = css`
   width: 25rem;
   height: 3.3125rem;
   /* padding: 1.125rem 6.6375rem 1.125rem 6.6375rem; */
@@ -66,3 +71,31 @@ const PrimaryButtonStyled = styled.button`
     margin-left: ${(theme.gridUnit + 2) / 16}rem;
   }
 `;
+
+const extraStyleSuccess = css`
+  cursor: pointer;
+  color: ${theme.colors.white};
+  border: 1px solid ${theme.colors.success};
+  background: ${theme.colors.success};
+  border-radius: ${theme.borderRadius.round};
+  height: 35px;
+  padding: 0 1.5em;
+  font-weight: ${theme.fonts.weights.semiBold};
+
+  &:hover {
+    background: ${theme.colors.white};
+    color: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
+
+  &:active {
+    color: ${theme.colors.white};
+    background: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
+`;
+
+const extraStyle = {
+  normal: extraStylePrimary,
+  minimalist: extraStyleSuccess,
+};
