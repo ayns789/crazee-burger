@@ -30,7 +30,7 @@ export default function OrderPage() {
     setProducts(productsUpdated);
   };
 
-  const resetProduct = () => {
+  const resetMenu = () => {
     setProducts(fakeMenu.LARGE);
   };
 
@@ -44,7 +44,7 @@ export default function OrderPage() {
     products,
     handleAdd,
     handleDelete,
-    resetProduct,
+    resetMenu,
   };
 
   return (

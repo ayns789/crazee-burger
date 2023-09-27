@@ -30,9 +30,9 @@ const MainStyled = styled.div`
   grid-template-columns: 1fr;
   // this code will be use for adding basket
   /* grid-template-columns: 25% 1fr; */
-  .basket {
+  /* .basket {
     background: pink;
-  }
+  } */
   .menu-and-admin {
     position: relative;
     overflow-y: hidden;

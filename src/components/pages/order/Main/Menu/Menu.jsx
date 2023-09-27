@@ -11,10 +11,10 @@ import EmptyMenuClient from './EmptyMenuClient';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin, handleDelete, resetProduct } = useContext(OrderContext);
+  const { products, isModeAdmin, handleDelete, resetMenu } = useContext(OrderContext);
 
   if (products.length === 0) {
-    return isModeAdmin ? <EmptyMenuAdmin resetProduct={resetProduct} /> : <EmptyMenuClient />;
+    return isModeAdmin ? <EmptyMenuAdmin resetMenu={resetMenu} /> : <EmptyMenuClient />;
   }
 
   return (
