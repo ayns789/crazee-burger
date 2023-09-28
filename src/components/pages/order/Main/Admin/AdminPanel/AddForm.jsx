@@ -9,6 +9,7 @@ import { FaHamburger } from 'react-icons/fa';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { MdOutlineEuro } from 'react-icons/md';
 import Button from '../../../../../reusable-ui/Button';
+import ImagePreview from './ImagePreview';
 
 export const EMPTY_PRODUCT = {
   id: '',
@@ -63,13 +64,7 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className='image-preview'>
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <span className='empty-image'>Aucune image</span>
-        )}
-      </div>
+      <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title} />
 
       <div className='input-fields'>
         <TextInput
@@ -133,30 +128,6 @@ const AddFormStyled = styled.form`
   grid-column-gap: 20px;
   grid-row-gap: 8px;
 
-  .image-preview {
-    /* background: lightcoral; */
-    // surface, on commence toujours par ligne, puis colonne:
-    // début ligne 1 / colonne 1, fin ligne 4 / colonne 2
-    grid-area: 1 / 1 / 4 / 2;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      position: center;
-    }
-    .empty-image {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid ${theme.colors.greyLight};
-      line-height: 1.5;
-      color: ${theme.colors.greySemiDark};
-      border-radius: ${theme.borderRadius.round};
-    }
-  }
   .input-fields {
     grid-area: 1 / 2 / 4 / 3;
 
