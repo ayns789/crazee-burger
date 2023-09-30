@@ -1,53 +1,44 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { theme } from '../../../../../theme';
+import Button from '../../../../reusable-ui/Button';
 
-export default function EmptyMenuAdmin({ resetProduct }) {
+export default function EmptyMenuAdmin({ resetMenu }) {
   return (
     <EmptyMenuAdminStyled>
-      <span className='spanData'>Pas de produits</span>
-      <div className='containerBtnData'>
-        <button className='btnData' onClick={resetProduct}>
-          Générer de nouveaux produits
-        </button>
+      <span className='title'>Pas de produits</span>
+      <div className='description'>
+        <Button label={'Générer de nouveaux produits'} onClick={resetMenu} />
       </div>
     </EmptyMenuAdminStyled>
   );
 }
 
 EmptyMenuAdmin.propTypes = {
-  resetProduct: PropTypes.func,
+  resetMenu: PropTypes.func,
 };
 
 const EmptyMenuAdminStyled = styled.div`
+  background-color: ${theme.colors.background_white};
+  box-shadow: ${theme.shadows.strong};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-  .spanData {
-    font-weight: bold;
-    font-size: 20px;
+  justify-content: center;
+  align-items: center; // permet de diminuer la largeur du bouton resetMenu
+  /* margin-top: 50px; */
+  .title,
+  .description {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    color: ${theme.colors.greyBlue};
   }
-  .containerBtnData {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    width: 18em;
-    .btnData {
-      background: ${theme.colors.primary};
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      height: 3em;
-      border-radius: 15px;
-      border: none;
-      padding: 0 25px 0 25px;
-      &:hover {
-        background: white;
-        color: ${theme.colors.primary};
-        transition: 0.5s;
-        border: 1px solid ${theme.colors.primary};
-      }
-    }
+  .title {
+    font-size: ${theme.fonts.size.P4};
+    font-weight: ${theme.fonts.weights.semiBold};
+  }
+  .description {
+    font-size: ${theme.fonts.size.P4};
+    margin-top: 20px;
   }
 `;

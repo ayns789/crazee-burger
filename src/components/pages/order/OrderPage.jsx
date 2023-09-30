@@ -5,12 +5,14 @@ import { theme } from '../../../theme';
 import OrderContext from '../../../context/OrderContext';
 import { useState } from 'react';
 import { fakeMenu } from '../../../fakeData/fakeProducts';
+import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/AddForm';
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState('add');
   const [products, setProducts] = useState(fakeMenu.LARGE);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
     // 1. Copie du tableau
@@ -30,7 +32,7 @@ export default function OrderPage() {
     setProducts(productsUpdated);
   };
 
-  const resetProduct = () => {
+  const resetMenu = () => {
     setProducts(fakeMenu.LARGE);
   };
 
@@ -42,9 +44,11 @@ export default function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     products,
+    newProduct,
+    setNewProduct,
     handleAdd,
     handleDelete,
-    resetProduct,
+    resetMenu,
   };
 
   return (
