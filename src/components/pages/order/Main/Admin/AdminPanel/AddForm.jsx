@@ -115,7 +115,8 @@ const AddFormStyled = styled.form`
     grid-row-gap: 8px;
   }
   .submit {
-    grid-area: 4/2 / 5/3;
+    /* grid-area: 4/2 / 5/3; */
+    grid-area: 4/-2 / -1/-1;
     display: flex;
     align-items: center;
     /* height: 2.5em; */
@@ -123,7 +124,7 @@ const AddFormStyled = styled.form`
     top: 3px;
 
     .submit-button {
-      width: 50%;
+      /* width: 50%; */
       height: 100%;
     }
   }

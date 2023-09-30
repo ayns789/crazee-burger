@@ -5,8 +5,10 @@ import { theme } from '../../../../../../theme';
 export default function SubmitMessage() {
   return (
     <SubmitMessageStyled>
-      <FiCheck className='icon' />
-      <span className='message'>Ajouté avec succès !</span>
+      <div className='contentSubmitMsg'>
+        <FiCheck className='icon' />
+        <span className='message'>Ajouté avec succès !</span>
+      </div>
     </SubmitMessageStyled>
   );
 }
@@ -18,6 +20,12 @@ const SubmitMessageStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
+
+  .contentSubmitMsg {
+    position: absolute;
+    left: 10px;
+  }
 
   .icon {
     color: ${theme.colors.success};

@@ -22,7 +22,7 @@ export default function Main() {
 const MainStyled = styled.div`
   background: ${theme.colors.background_white};
   flex: 1;
-  height: calc(95vh - 10vh);
+  height: calc(95vh - 10vh - 5vh);
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: ${theme.shadows.strong};

@@ -24,12 +24,15 @@ const ImagePreviewStyled = styled.div`
   // surface, on commence toujours par ligne, puis colonne:
   // début ligne 1 / colonne 1, fin ligne 4 / colonne 2
   grid-area: 1 / 1 / 4 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    position: center;
+    object-position: center;
   }
   .empty-image {
     height: 100%;
