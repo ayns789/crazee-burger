@@ -22,7 +22,7 @@ const ButtonStyled = styled.button`
   ${(props) => extraStyle[props.version]}
 `;
 
-const extraStylePrimary = css`
+const extraStyleNormal = css`
   width: 25rem;
   height: 3.3125rem;
   /* padding: 1.125rem 6.6375rem 1.125rem 6.6375rem; */
@@ -97,6 +97,6 @@ const extraStyleSuccess = css`
 `;
 
 const extraStyle = {
-  normal: extraStylePrimary,
-  minimalist: extraStyleSuccess,
+  normal: extraStyleNormal,
+  success: extraStyleSuccess,
 };

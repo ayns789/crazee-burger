@@ -82,7 +82,7 @@ export default function AddForm() {
             {...input}
             key={input.key}
             onChange={handleChange}
-            version='minimalist'
+            version='success'
           />
         ))}
       </div>
@@ -90,7 +90,7 @@ export default function AddForm() {
         <Button
           className='submit-button'
           label={'Ajouter un nouveau produit au menu'}
-          version={'minimalist'}
+          version={'success'}
         />
         {isSubmitted && <SubmitMessage />}
       </div>
