@@ -7,6 +7,7 @@ import { theme } from '../../../theme';
 import OrderContext from '../../../context/OrderContext';
 import { fakeMenu } from '../../../fakeData/fakeProducts';
 import { EMPTY_PRODUCT } from '../../../enums/product';
+import { deepClone } from '../../../utils/array';
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
@@ -18,7 +19,7 @@ export default function OrderPage() {
 
   const handleAdd = (newProduct) => {
     // 1. Copie du tableau
-    const menuCopy = JSON.parse(JSON.stringify(products));
+    const menuCopy = deepClone(products);
 
     // 2. manip de la copie
     const menuUpdated = [newProduct, ...menuCopy];
@@ -29,14 +30,14 @@ export default function OrderPage() {
 
   const handleDelete = (idProduct) => {
     // alert('button clicked');
-    const productsCopy = JSON.parse(JSON.stringify(products));
+    const productsCopy = deepClone(products);
     const productsUpdated = productsCopy.filter((product) => product.id !== idProduct);
     setProducts(productsUpdated);
   };
 
   const handleEdit = (productBeingEdited) => {
     // console.log('productBeingEdited : ', productBeingEdited);
-    const menuCopy = JSON.parse(JSON.stringify(products));
+    const menuCopy = deepClone(products);
 
     const indexOfproductBeingEdited = menuCopy.findIndex(
       (product) => product.id === productBeingEdited.id
