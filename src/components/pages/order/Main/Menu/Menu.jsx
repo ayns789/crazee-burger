@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
 
 import { theme } from '../../../../../theme';
 import Card from '../../../../reusable-ui/Card';
 import { formatPrice } from '../../../../../utils/maths';
 import OrderContext from '../../../../../context/OrderContext';
-import { useContext } from 'react';
 import EmptyMenuAdmin from './EmptyMenuAdmin';
 import EmptyMenuClient from './EmptyMenuClient';
 
@@ -19,9 +19,8 @@ export default function Menu() {
   }
 
   const handleClick = (idProductClicked) => {
-    // console.log('infosCard : ', idCard);
     const productSelected = products.find((product) => product.id === idProductClicked);
-    // console.log('infosCard : ', productSelected);
+
     setProductSelected(productSelected);
   };
 

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { TiDelete } from 'react-icons/ti';
+
 import Button from './Button';
 import { theme } from '../../theme';
-import { TiDelete } from 'react-icons/ti';
 
 export default function Card({
   title,

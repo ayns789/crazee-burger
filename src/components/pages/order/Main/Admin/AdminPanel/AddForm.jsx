@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import OrderContext from '../../../../../../context/OrderContext';
 import { useContext } from 'react';
 import { useState } from 'react';
 
-// import { theme } from '../../../../../../theme';
+import OrderContext from '../../../../../../context/OrderContext';
 import TextInput from '../../../../../reusable-ui/TextInput';
-// import { FaHamburger } from 'react-icons/fa';
-// import { BsFillCameraFill } from 'react-icons/bs';
-// import { MdOutlineEuro } from 'react-icons/md';
 import Button from '../../../../../reusable-ui/Button';
 import ImagePreview from './ImagePreview';
 import SubmitMessage from './SubmitMessage';
@@ -27,7 +23,7 @@ export default function AddForm() {
       // id: new Date.getTime(),
       id: crypto.randomUUID(),
     };
-    console.log('newProduct is : ', newProductToAdd);
+    // console.log('newProduct is : ', newProductToAdd);
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
     displaySuccessMsg();

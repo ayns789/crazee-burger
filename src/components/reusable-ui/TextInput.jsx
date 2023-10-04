@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { css, styled } from 'styled-components';
+
 import { theme } from '../../theme';
 
 export default function TextInput({
@@ -10,8 +11,6 @@ export default function TextInput({
   version = 'normal',
   ...extraProps
 }) {
-  console.log('restProps : ', extraProps);
-
   return (
     <TextInputStyled className={className} version={version}>
       <div className='icon'>{Icon && Icon}</div>
@@ -21,7 +20,7 @@ export default function TextInput({
 }
 
 TextInput.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   Icon: PropTypes.object.isRequired,
   className: PropTypes.string,
