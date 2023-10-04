@@ -11,11 +11,19 @@ import EmptyMenuClient from './EmptyMenuClient';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin, handleDelete, resetMenu } = useContext(OrderContext);
+  const { products, isModeAdmin, handleDelete, resetMenu, setProductSelected } =
+    useContext(OrderContext);
 
   if (products.length === 0) {
     return isModeAdmin ? <EmptyMenuAdmin resetMenu={resetMenu} /> : <EmptyMenuClient />;
   }
+
+  const handleClick = (idProductClicked) => {
+    // console.log('infosCard : ', idCard);
+    const productSelected = products.find((product) => product.id === idProductClicked);
+    // console.log('infosCard : ', productSelected);
+    setProductSelected(productSelected);
+  };
 
   return (
     <MenuStyled>
@@ -28,6 +36,7 @@ export default function Menu() {
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
+            onClick={() => handleClick(id)}
           />
         );
       })}

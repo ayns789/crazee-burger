@@ -1,3 +1,8 @@
+import { useContext } from 'react';
+import OrderContext from '../../../../../../context/OrderContext';
+
 export default function EditForm() {
-  return <div>EditForm</div>;
+  const { productSelected } = useContext(OrderContext);
+  // console.log('productSelected : ', productSelected);
+  return <span>{productSelected && productSelected.title}</span>;
 }

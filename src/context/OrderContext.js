@@ -4,18 +4,23 @@ export default createContext({
   isModeAdmin: false,
   setIsModeAdmin: () => {},
 
-  isCollapsed: true,
+  isCollapsed: false,
   setIsCollapsed: () => {},
 
-  currentTabSelected: '',
+  currentTabSelected: false,
   setCurrentTabSelected: () => {},
 
   products: [],
   resetMenu: () => {},
 
-  newProduct: [],
+  newProduct: {},
   setNewProduct: () => {},
 
   handleAdd: () => {},
   handleDelete: () => {},
+
+  // productSelected: [],
+
+  productSelected: {},
+  setProductSelected: () => {},
 });

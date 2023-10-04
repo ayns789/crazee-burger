@@ -5,7 +5,7 @@ import { theme } from '../../../theme';
 import OrderContext from '../../../context/OrderContext';
 import { useState } from 'react';
 import { fakeMenu } from '../../../fakeData/fakeProducts';
-import { EMPTY_PRODUCT } from './Main/Admin/AdminPanel/AddForm';
+import { EMPTY_PRODUCT } from '../../../enums/product';
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
@@ -13,6 +13,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState('edit');
   const [products, setProducts] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState({});
 
   const handleAdd = (newProduct) => {
     // 1. Copie du tableau
@@ -49,6 +50,8 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetMenu,
+    productSelected,
+    setProductSelected,
   };
 
   return (
