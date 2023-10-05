@@ -14,15 +14,15 @@ export default function Menu() {
   const { products, isModeAdmin, handleDelete, resetMenu, setProductSelected } =
     useContext(OrderContext);
 
+  const handleClick = (idProductClicked) => {
+    const productClickedOn = products.find((product) => product.id === idProductClicked);
+
+    setProductSelected(productClickedOn);
+  };
+
   if (products.length === 0) {
     return isModeAdmin ? <EmptyMenuAdmin resetMenu={resetMenu} /> : <EmptyMenuClient />;
   }
-
-  const handleClick = (idProductClicked) => {
-    const productSelected = products.find((product) => product.id === idProductClicked);
-
-    setProductSelected(productSelected);
-  };
 
   return (
     <MenuStyled>
