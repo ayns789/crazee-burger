@@ -16,6 +16,7 @@ export default function Menu() {
     useContext(OrderContext);
 
   const handleClick = (idProductClicked) => {
+    if (!isModeAdmin) return;
     const productClickedOn = products.find((product) => product.id === idProductClicked);
 
     setProductSelected(productClickedOn);
