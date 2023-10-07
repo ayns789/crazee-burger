@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { theme } from '../../theme';
 import { css, styled } from 'styled-components';
 
-export default function Button({ label, Icon, version = 'normal', onClick }) {
+export default function Button({ label, Icon, version = 'normal', className, onClick }) {
   return (
-    <ButtonStyled version={version} onClick={onClick}>
+    <ButtonStyled version={version} onClick={onClick} className={className}>
       <span>{label}</span>
       {Icon && <div className='icon'>{Icon}</div>}
     </ButtonStyled>
@@ -16,6 +16,7 @@ Button.propTypes = {
   Icon: PropTypes.object,
   version: PropTypes.string,
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 const ButtonStyled = styled.button`
