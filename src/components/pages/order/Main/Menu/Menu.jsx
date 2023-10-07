@@ -21,6 +21,11 @@ export default function Menu() {
     setProductSelected(productClickedOn);
   };
 
+  const handleCardDelete = (event, id) => {
+    event.stopPropagation();
+    handleDelete(id);
+  };
+
   if (products.length === 0) {
     return isModeAdmin ? <EmptyMenuAdmin resetMenu={resetMenu} /> : <EmptyMenuClient />;
   }
@@ -35,7 +40,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
