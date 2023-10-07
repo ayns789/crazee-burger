@@ -12,11 +12,21 @@ import { checkIfProductIsSelected } from './helper';
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin, handleDelete, resetMenu, productSelected, setProductSelected } =
-    useContext(OrderContext);
+  const {
+    products,
+    isModeAdmin,
+    handleDelete,
+    resetMenu,
+    productSelected,
+    setProductSelected,
+    setCurrentTabSelected,
+    setIsCollapsed,
+  } = useContext(OrderContext);
 
   const handleClick = (idProductClicked) => {
     if (!isModeAdmin) return;
+    setIsCollapsed(false);
+    setCurrentTabSelected('edit');
     const productClickedOn = products.find((product) => product.id === idProductClicked);
 
     setProductSelected(productClickedOn);
