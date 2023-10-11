@@ -4,7 +4,7 @@ import AddForm from './AdminPanel/AddForm';
 import EditForm from './AdminPanel/EditForm';
 import HintMessage from './AdminPanel/HintMessage';
 
-export const getTabsConfig = (hasAlreadyBeenClicked = false) => [
+export const getTabsConfig = (hasAlreadyBeenClicked) => [
   // export const getTabsConfig = [
   // {
   //   index: 'chevronUpDown',
