@@ -1,13 +1,14 @@
-import { useContext } from 'react';
 import styled from 'styled-components';
 
+import { useContext } from 'react';
 import OrderContext from '../../../../../../context/OrderContext';
 import TextInput from '../../../../../reusable-ui/TextInput';
 import ImagePreview from './ImagePreview';
 import { getInputTextsConfig } from './getInputTextConfig';
 
 export default function EditForm() {
-  const { productSelected, setProductSelected, handleEdit } = useContext(OrderContext);
+  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
+    useContext(OrderContext);
   const inputTexts = getInputTextsConfig(productSelected);
 
   const handleChange = (event) => {
@@ -23,6 +24,14 @@ export default function EditForm() {
 
   return (
     <EditFormStyled>
+      {/* <button
+        onClick={(e) => {
+          e.preventDefault();
+          titleEditRef.current.focus();
+        }}
+      >
+        Click
+      </button> */}
       <ImagePreview imageSource={productSelected.imageSource} title={productSelected.title} />
 
       <div className='input-fields'>
@@ -39,6 +48,7 @@ export default function EditForm() {
             key={input.key}
             onChange={handleChange}
             version='success'
+            ref={input.name === 'title' ? titleEditRef : null}
           />
         ))}
       </div>

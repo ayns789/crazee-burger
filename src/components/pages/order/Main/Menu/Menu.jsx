@@ -21,15 +21,16 @@ export default function Menu() {
     setProductSelected,
     setCurrentTabSelected,
     setIsCollapsed,
+    titleEditRef,
   } = useContext(OrderContext);
 
-  const handleClick = (idProductClicked) => {
+  const handleClick = async (idProductClicked) => {
     if (!isModeAdmin) return;
-    setIsCollapsed(false);
-    setCurrentTabSelected('edit');
+    await setIsCollapsed(false);
+    await setCurrentTabSelected('edit');
     const productClickedOn = products.find((product) => product.id === idProductClicked);
-
-    setProductSelected(productClickedOn);
+    await setProductSelected(productClickedOn);
+    await titleEditRef.current.focus();
   };
 
   const handleCardDelete = (event, id) => {

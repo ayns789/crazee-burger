@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Navbar from './Navbar/Navbar';
 import Main from './Main/Main';
@@ -16,6 +16,7 @@ export default function OrderPage() {
   const [products, setProducts] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState({});
+  const titleEditRef = useRef();
 
   const handleAdd = (newProduct) => {
     // 1. Copie du tableau
@@ -69,6 +70,7 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     handleEdit,
+    titleEditRef,
   };
 
   return (

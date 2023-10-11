@@ -2,22 +2,22 @@ import PropTypes from 'prop-types';
 import { css, styled } from 'styled-components';
 
 import { theme } from '../../theme';
+import React from 'react';
 
-export default function TextInput({
-  value,
-  onChange,
-  Icon,
-  className,
-  version = 'normal',
-  ...extraProps
-}) {
-  return (
-    <TextInputStyled className={className} version={version}>
-      <div className='icon'>{Icon && Icon}</div>
-      <input value={value} onChange={onChange} {...extraProps} />
-    </TextInputStyled>
-  );
-}
+const TextInput = React.forwardRef(
+  ({ value, onChange, Icon, className, version = 'normal', ...extraProps }, ref) => {
+    return (
+      <TextInputStyled className={className} version={version}>
+        <div className='icon'>{Icon && Icon}</div>
+        <input ref={ref} value={value} onChange={onChange} {...extraProps} />
+      </TextInputStyled>
+    );
+  }
+);
+
+TextInput.displayName = 'TextInput';
+
+export default TextInput;
 
 TextInput.propTypes = {
   value: PropTypes.string,
