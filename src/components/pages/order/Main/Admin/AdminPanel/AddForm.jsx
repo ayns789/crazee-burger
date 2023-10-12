@@ -1,19 +1,20 @@
-import styled from 'styled-components';
-import { useContext } from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-import OrderContext from '../../../../../../context/OrderContext';
-import TextInput from '../../../../../reusable-ui/TextInput';
-import Button from '../../../../../reusable-ui/Button';
-import ImagePreview from './ImagePreview';
-import SubmitMessage from './SubmitMessage';
-import { getInputTextsConfig } from './getInputTextConfig';
 import { EMPTY_PRODUCT } from '../../../../../../enums/product';
+import ProductForm from './ProductForm';
+import OrderContext from '../../../../../../context/OrderContext';
 
 export default function AddForm() {
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const displaySuccessMsg = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,13 +28,6 @@ export default function AddForm() {
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
     displaySuccessMsg();
-  };
-
-  const displaySuccessMsg = () => {
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -51,71 +45,15 @@ export default function AddForm() {
 
     // autre façon de procéder :
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+    console.log('typoOf product : ', typeof newProduct);
   };
 
-  const inputTexts = getInputTextsConfig(newProduct);
-
   return (
-    <AddFormStyled onSubmit={handleSubmit}>
-      <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title} />
-
-      <div className='input-fields'>
-        {inputTexts.map((input) => (
-          <TextInput
-            // key={input.key}
-            // name={input.name}
-            // placeholder={input.placeholder}
-            // value={input.value}
-            // onChange={handleChange}
-            // Icon={input.Icon}
-            // version='minimalist'
-            {...input}
-            key={input.key}
-            onChange={handleChange}
-            version='success'
-          />
-        ))}
-      </div>
-      <div className='submit'>
-        <Button
-          className='submit-button'
-          label={'Ajouter un nouveau produit au menu'}
-          version={'success'}
-        />
-        {isSubmitted && <SubmitMessage />}
-      </div>
-    </AddFormStyled>
+    <ProductForm
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      product={newProduct}
+      isSubmitted={isSubmitted}
+    />
   );
 }
-
-const AddFormStyled = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
-  grid-template-rows: repeat(4, 1fr);
-  height: 100%;
-  width: 70%;
-  grid-column-gap: 20px;
-  grid-row-gap: 8px;
-
-  .input-fields {
-    grid-area: 1 / 2 / 4 / 3;
-
-    display: grid;
-    grid-row-gap: 8px;
-  }
-  .submit {
-    /* grid-area: 4/2 / 5/3; */
-    grid-area: 4/-2 / -1/-1;
-    display: flex;
-    align-items: center;
-    /* height: 2.5em; */
-    position: relative;
-    top: 3px;
-
-    .submit-button {
-      /* width: 50%; */
-      height: 100%;
-    }
-  }
-`;
