@@ -31,14 +31,14 @@ export default function Menu() {
     await setCurrentTabSelected('edit');
     const productClickedOn = products.find((product) => product.id === idProductClicked);
     await setProductSelected(productClickedOn);
-    await titleEditRef.current.focus();
+    titleEditRef.current.focus();
   };
 
-  const handleCardDelete = (event, id) => {
+  const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(id);
-
-    id === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    handleDelete(idProductToDelete);
+    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
   };
 
   if (products.length === 0) {
@@ -57,8 +57,8 @@ export default function Menu() {
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
-            isHoverable={isModeAdmin}
-            isSelected={checkIfProductIsSelected(id, productSelected.id)}
+            isHoverable={isModeAdmin ? isModeAdmin : null}
+            isSelected={isModeAdmin && checkIfProductIsSelected(id, productSelected.id)}
           />
         );
       })}

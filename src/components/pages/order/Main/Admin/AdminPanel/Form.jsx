@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { getInputTextsConfig } from './getInputTextConfig';
 import React from 'react';
 
-const Form = React.forwardRef(({ product, SOMETHING, onSubmit, onChange }, ref) => {
+const Form = React.forwardRef(({ product, children, onSubmit, onChange }, ref) => {
   const inputTexts = getInputTextsConfig(product);
 
   return (
@@ -32,7 +32,7 @@ const Form = React.forwardRef(({ product, SOMETHING, onSubmit, onChange }, ref) 
         ))}
       </div>
 
-      <div className='submit'>{SOMETHING}</div>
+      <div className='form-footer'>{children}</div>
     </FormStyled>
   );
 });
@@ -46,7 +46,7 @@ Form.propTypes = {
   onChange: PropTypes.func,
   inputs: PropTypes.array,
   product: PropTypes.object,
-  SOMETHING: PropTypes.element,
+  children: PropTypes.element,
 };
 
 const FormStyled = styled.form`
@@ -65,7 +65,7 @@ const FormStyled = styled.form`
     display: grid;
     grid-row-gap: 8px;
   }
-  .submit {
+  .form-footer {
     /* grid-area: 4/2 / 5/3; */
     grid-area: 4/-2 / -1/-1;
     display: flex;
@@ -73,10 +73,5 @@ const FormStyled = styled.form`
     /* height: 2.5em; */
     position: relative;
     top: 3px;
-
-    .submit-button {
-      /* width: 50%; */
-      height: 100%;
-    }
   }
 `;
