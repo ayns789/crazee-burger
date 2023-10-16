@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 
 import { EMPTY_PRODUCT } from '../../../../../../enums/product';
-import ProductForm from './ProductForm';
+import Form from './Form';
 import OrderContext from '../../../../../../context/OrderContext';
+import Button from '../../../../../reusable-ui/Button';
+import SubmitMessage from './SubmitMessage';
 
 export default function AddForm() {
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
@@ -45,15 +47,24 @@ export default function AddForm() {
 
     // autre façon de procéder :
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
-    console.log('typoOf product : ', typeof newProduct);
   };
 
   return (
-    <ProductForm
+    <Form
       onSubmit={handleSubmit}
       onChange={handleChange}
       product={newProduct}
       isSubmitted={isSubmitted}
+      SOMETHING={
+        <>
+          <Button
+            className='submit-button'
+            label={'Ajouter un nouveau produit au menu'}
+            version={'success'}
+          />
+          {isSubmitted && <SubmitMessage />}
+        </>
+      }
     />
   );
 }
