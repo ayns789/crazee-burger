@@ -1,17 +1,45 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
 
 import { theme } from '../../../../../theme';
 import Card from '../../../../reusable-ui/Card';
 import { formatPrice } from '../../../../../utils/maths';
 import OrderContext from '../../../../../context/OrderContext';
-import { useContext } from 'react';
 import EmptyMenuAdmin from './EmptyMenuAdmin';
 import EmptyMenuClient from './EmptyMenuClient';
+import { checkIfProductIsSelected } from './helper';
+import { EMPTY_PRODUCT } from '../../../../../enums/product';
 
 const DEFAULT_IMAGE = '/images/coming-soon.png';
 
 export default function Menu() {
-  const { products, isModeAdmin, handleDelete, resetMenu } = useContext(OrderContext);
+  const {
+    products,
+    isModeAdmin,
+    handleDelete,
+    resetMenu,
+    productSelected,
+    setProductSelected,
+    setCurrentTabSelected,
+    setIsCollapsed,
+    titleEditRef,
+  } = useContext(OrderContext);
+
+  const handleClick = async (idProductClicked) => {
+    if (!isModeAdmin) return;
+    await setIsCollapsed(false);
+    await setCurrentTabSelected('edit');
+    const productClickedOn = products.find((product) => product.id === idProductClicked);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
+
+  const handleCardDelete = (event, idProductToDelete) => {
+    event.stopPropagation();
+    handleDelete(idProductToDelete);
+    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
+  };
 
   if (products.length === 0) {
     return isModeAdmin ? <EmptyMenuAdmin resetMenu={resetMenu} /> : <EmptyMenuClient />;
@@ -27,7 +55,10 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
+            onClick={() => handleClick(id)}
+            isHoverable={isModeAdmin ? isModeAdmin : null}
+            isSelected={isModeAdmin && checkIfProductIsSelected(id, productSelected.id)}
           />
         );
       })}
