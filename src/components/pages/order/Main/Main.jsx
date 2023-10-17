@@ -31,14 +31,12 @@ const MainStyled = styled.div`
   /* grid-template-columns: 1fr; */
   // this code will be use for adding basket
   grid-template-columns: 25% 1fr;
-  /* .basket {
-    background: pink;
-  } */
+  overflow: hidden;
+
   .menu-and-admin {
     position: relative;
     overflow-y: hidden;
     display: grid;
-    border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;
