@@ -14,12 +14,14 @@ export default function Basket() {
 const BasketStyled = styled.div`
   display: flex;
   flex-direction: column;
+
   .head {
     background: ${theme.colors.background_dark};
     height: 70px;
   }
   .body {
     background: ${theme.colors.background_white};
+    box-shadow: ${theme.shadows.basket};
     flex: 1;
   }
   .footer {
