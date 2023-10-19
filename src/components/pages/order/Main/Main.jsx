@@ -4,13 +4,14 @@ import Menu from './Menu/Menu';
 import Admin from './Admin/Admin';
 import { useContext } from 'react';
 import OrderContext from '../../../../context/OrderContext';
+import Basket from './Menu/Basket/Basket';
 
 export default function Main() {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   return (
     <MainStyled>
-      {/* <div className='basket'>Basket</div> */}
+      <Basket />
       <div className='menu-and-admin'>
         <Menu />
         {isModeAdmin && <Admin />}
@@ -27,17 +28,15 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: ${theme.shadows.strong};
   display: grid;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
   // this code will be use for adding basket
-  /* grid-template-columns: 25% 1fr; */
-  /* .basket {
-    background: pink;
-  } */
+  grid-template-columns: 25% 1fr;
+  overflow: hidden;
+
   .menu-and-admin {
     position: relative;
     overflow-y: hidden;
     display: grid;
-    border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;
