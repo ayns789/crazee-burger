@@ -5,27 +5,30 @@ import { theme } from '../../../../../../theme';
 export default function SubmitMessage() {
   return (
     <SubmitMessageStyled>
-      <div className='contentSubmitMsg'>
-        <FiCheck className='icon' />
-        <span className='message'>Ajouté avec succès !</span>
-      </div>
+      {/* <div className='contentSubmitMsg'> */}
+      <FiCheck className='icon' />
+      <span className='message'>Ajouté avec succès !</span>
+      {/* </div> */}
     </SubmitMessageStyled>
   );
 }
 
 const SubmitMessageStyled = styled.div`
   font-size: small;
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  position: relative;
+  /* position: relative; */
+  left: 100%;
+  top: 0%;
+  position: absolute;
 
-  .contentSubmitMsg {
-    position: absolute;
+  /* .contentSubmitMsg {
     left: 10px;
-  }
+    position: absolute;
+  } */
 
   .icon {
     color: ${theme.colors.success};

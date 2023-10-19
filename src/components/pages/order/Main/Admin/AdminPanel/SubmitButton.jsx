@@ -28,4 +28,7 @@ SubmitButton.propTypes = {
 const SubmitButtonStyled = styled.div`
   /* width: 50%; */
   height: 100%;
+  .height {
+    position: relative;
+  }
 `;
